@@ -4,17 +4,18 @@ export default function Form(props) {
     const handleUpClick = () => {
         console.log("Clicked Up")
         let newText = text.toUpperCase()
-        // setText("You clicked handleUpClick ")
         setText(newText)
+        props.showAlert("Converted to Upper Case", "success")
     }
     const handleLowClick = () => {
         console.log("Clicked Up")
         let newText = text.toLowerCase()
-        // setText("You clicked handleUpClick ")
         setText(newText)
+        props.showAlert("Converted to Lower Case", "warning")
     }
     const handleDelete = () => {
         setText(" ")
+        props.showAlert("Deleted the content", "danger")
     }
     const handleOnChange = (event) => {
         console.log("OnChange")
@@ -35,7 +36,7 @@ export default function Form(props) {
                 <button className='btn btn-primary mx-4' onClick={handleUpClick}>UpperCase</button>
                 <button className='btn btn-primary mx-4' onClick={handleLowClick}>Lower Case</button>
                 <button type="button" class="btn btn-info mx-4" onClick={handleDelete}>Delete Content</button>
-                <div className='container my-4' style={{ color: props.mode === 'dark' ? 'white' : 'black' }} >
+                <div className='container my-4' style={{ color: props.mode === "dark" ? "white" : "black" }} >
                     <h1>Your Text Summary</h1>
                     <p>{text.split(' ').length} word and {text.length} Characters</p>
                     <p>{0.008 * text.split(" ").length} Minutes to read.</p>
