@@ -77,12 +77,6 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-
-      {/* <Navbar title="Desi Qna" link="Links" mode={mode} toggleMode={toggleMode}/> */}
-      {/* <Alert alert={alert}/>
-    <TextForm showAlert={showAlert} heading= "Enter the text to modify" mode={mode} /> */}
-      {/* <About/> */}
-      {/* <Alert alert={alert} /> */}
     </>
   );
 }
