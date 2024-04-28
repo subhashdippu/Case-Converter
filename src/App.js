@@ -1,42 +1,88 @@
-import Navbar from './Navbar'
-import Form from './Form';
-import About from './About';
-import Alert from './Alert'
-import React, { useState } from 'react';
-function App() {
+// import About from './About';
+import "./App.css";
+import Navbar from "./Navbar";
+import TextForm from "./Form";
+import React, { useState } from "react";
+import Alert from "./Alert";
+import About from "./About";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-  const [alert, setAlert] = useState(null)
-  const [mode, setMode] = useState('dark');
+function App() {
+  const [mode, setMode] = useState("light");
+  const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
       type: type,
-    })
+    });
 
-    // After 2 second alert will dispare
     setTimeout(() => {
-      setAlert(null)
-    }, 2000)
-  }
+      setAlert(null);
+    }, 2000);
+  };
+
   const toggleMode = () => {
-    if (mode === 'light') {
+    if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = '#0d0833';
-      showAlert("Dark mode turn on", "success")
+      document.body.style.backgroundColor = "#0d0833";
+      showAlert("Dark mode turned on", "success");
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+      showAlert("Light mode turned on", "success");
     }
-    else {
-      setMode('light');
-      document.body.style.backgroundColor = 'white';
-      showAlert("Light Mode turn on", "success")
-    }
-  }
+  };
+
+
   return (
     <>
-      <Navbar title='Navbar' mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <Form heading="Enter the text to modify" mode={mode} showAlert={showAlert} />
-      {/* <About /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <>
+                <Navbar
+                  title="TextChanger"
+                  link="Links"
+                  mode={mode}
+                  toggleMode={toggleMode}
+                />
+                <Alert alert={alert} />
+                <TextForm
+                  showAlert={showAlert}
+                  heading="TextChanger - word counter Character counter, word counter , time counter"
+                  mode={mode}
+                />
+              </>
+            }
+          />
+
+          <Route
+            exact
+            path="/About"
+            element={
+              <>
+                <Navbar
+                  title="TextChanger"
+                  link="Links"
+                  mode={mode}
+                  toggleMode={toggleMode}
+                />
+                <About mode={mode} />
+              </>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+
+      {/* <Navbar title="Desi Qna" link="Links" mode={mode} toggleMode={toggleMode}/> */}
+      {/* <Alert alert={alert}/>
+    <TextForm showAlert={showAlert} heading= "Enter the text to modify" mode={mode} /> */}
+      {/* <About/> */}
+      {/* <Alert alert={alert} /> */}
     </>
   );
 }
