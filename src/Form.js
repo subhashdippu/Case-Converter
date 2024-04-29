@@ -4,15 +4,12 @@ export default function TextForm(props) {
     const handleUpClick = () => {
         console.log("upper case was clicked" + text);
         let newText = text.toUpperCase();
-        // setText("You clicked on hanndleupclick")
         setText(newText);
         props.showAlert("Converted to Upper Case", "success");
     };
 
     const handleLowClick = () => {
-        // console.log("upper case was clicked" +text);
         let newText = text.toLowerCase();
-        // setText("You clicked on hanndleupclick")
         setText(newText);
         props.showAlert("Converted to Lower Case", "warning");
     };
@@ -22,8 +19,6 @@ export default function TextForm(props) {
     };
 
     const [text, setText] = useState("");
-    // setText("New text");
-    // console.log(text);
 
     const handleDelete = () => {
         setText("");
@@ -40,7 +35,6 @@ export default function TextForm(props) {
 
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label">
-                        {/* {props.heading} */}
                     </label>
                     <textarea
                         className="form-control"

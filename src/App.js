@@ -1,4 +1,3 @@
-// import About from './About';
 import "./App.css";
 import Navbar from "./Navbar";
 import TextForm from "./Form";
@@ -65,12 +64,12 @@ function App() {
             path="/About"
             element={
               <>
-                <Navbar
-                  title="TextChanger"
+                <Navbar title="TextChanger"
                   link="Links"
                   mode={mode}
                   toggleMode={toggleMode}
                 />
+                <Alert />
                 <About mode={mode} />
               </>
             }
