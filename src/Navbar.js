@@ -54,3 +54,8 @@ Navbar.propTypes = {
 Navbar.defaultProps = {
     title: "Set title name"
 }
+
+Navbar.defaultProps = {
+    title: "Set title name"
+}
+
