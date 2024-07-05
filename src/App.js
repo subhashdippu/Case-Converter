@@ -1,9 +1,9 @@
 import "./App.css";
-import Navbar from "./Navbar";
-import TextForm from "./Form";
+import Navbar from "./components/Navbar";
+import TextForm from "./components/Form";
 import React, { useState } from "react";
-import Alert from "./Alert";
-import About from "./About";
+import Alert from "./components/Alert";
+import About from "./components/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
       showAlert("Dark mode turned on", "success");
     } else {
       setMode("light");
-      document.body.style.backgroundColor = "white";
+      document.body.style.backgroundColor = "#fffff";
       showAlert("Light mode turned on", "success");
     }
   };
